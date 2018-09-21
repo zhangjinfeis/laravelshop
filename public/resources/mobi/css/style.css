@@ -1,0 +1,489 @@
+@charset "UTF-8";
+/***************** 布局 ******************/
+.less-center-img {
+  font-size: 0;
+  text-align: center;
+}
+.less-center-img img {
+  vertical-align: middle;
+}
+.less-center-img:after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+  overflow: hidden;
+}
+/***************** 定位 ******************/
+/***************** 样式 ******************/
+/***************** 字体 ******************/
+/***************** 按钮 ******************/
+/***************** 圆形 ******************/
+/***************** 动画 ******************/
+/******************************************** 网站样式开始 **********************************************/
+/***************** 全局 ******************/
+html {
+  box-sizing: border-box;
+}
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+body {
+  font-family: PingFang SC, "微软雅黑", arial, helvetica, clean, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  word-wrap: break-word;
+  line-height: 1.15;
+  font-size: 15px;
+  background-color: #ddd;
+}
+img {
+  line-height: 1;
+  font-size: 0;
+  vertical-align: top;
+  height: auto;
+  max-width: 100%;
+}
+.com-p {
+  line-height: 1.8;
+  font-size: 14px;
+}
+.com-p p {
+  margin: 0;
+  padding: 0;
+}
+/***************** 网页样式 ******************/
+.wrap {
+  margin: 0 auto;
+  background-color: #fff;
+}
+/******** 公用 ********/
+/* 头部 */
+#header {
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+#header .logo {
+  display: block;
+  height: 33px;
+  float: left;
+  margin-top: 9px;
+  margin-left: 10px;
+}
+#header .logo img {
+  height: 100%;
+  width: auto;
+  max-width: inherit;
+}
+/* 菜单列表 */
+#menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s all;
+  -webkit-transition: .3s all;
+}
+#menu.open {
+  opacity: 1;
+  visibility: visible;
+}
+#menu .menu-nav {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+}
+#menu .menu-nav .item:hover a {
+  background-color: #eee;
+}
+#menu .menu-nav .item a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #555;
+  font-size: 15px;
+  font-weight: bold;
+  border-bottom: 1px solid #ededed;
+}
+/* 尾部 */
+#footer {
+  padding: 12px 0;
+  text-align: center;
+  background-color: #ededed;
+}
+#footer .copyright {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+}
+/* 首页内容 */
+#main {
+  padding-top: 50px;
+  min-height: 100vh;
+  background-color: #ededed;
+}
+/* 内页内容 */
+#sub-main {
+  padding: 70px 10px 0;
+  min-height: 100vh;
+}
+/* 菜单栏 */
+#hamburger {
+  display: block;
+  -webkit-transform: translateZ(0);
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  z-index: 10000;
+  cursor: pointer;
+  width: 25px;
+}
+#hamburger .icon-bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  border-radius: 1px;
+  background: #1c1c20;
+  margin-bottom: 6px;
+  -webkit-transition: all 700ms cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: all 700ms cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition: all 700ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 700ms cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -o-transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  -webkit-transform-origin: center left;
+  -moz-transform-origin: center left;
+  -ms-transform-origin: center left;
+  -o-transform-origin: center left;
+  transform-origin: center left;
+  position: relative;
+}
+#hamburger .icon-bar:nth-child(2) {
+  width: 20px;
+}
+#hamburger .icon-bar:nth-child(3) {
+  width: 15px;
+}
+#hamburger.active .icon-bar:nth-child(1) {
+  background-color: #1c1c20;
+  width: 25px;
+  -webkit-transform: rotate(405deg);
+  -moz-transform: rotate(405deg);
+  -ms-transform: rotate(405deg);
+  transform: rotate(405deg);
+}
+#hamburger.active .icon-bar:nth-child(2) {
+  -webkit-transform: translate(-25px, 0);
+  -moz-transform: translate(-25px, 0);
+  -ms-transform: translate(-25px, 0);
+  transform: translate(-25px, 0);
+  opacity: 0;
+}
+#hamburger.active .icon-bar:nth-child(3) {
+  background-color: #1c1c20;
+  width: 25px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+/******** 组件 ********/
+.com-title {
+  margin-bottom: 16px;
+}
+.com-title .title {
+  font-size: 15px;
+  color: #222;
+  font-weight: bold;
+}
+.com-title .title:before {
+  content: '';
+  display: inline-block;
+  vertical-align: -2px;
+  width: 6px;
+  height: 16px;
+  margin-right: 10px;
+  background-color: #056799;
+}
+.com-title .more {
+  float: right;
+  font-size: 12px;
+  margin-top: 3px;
+  color: #999;
+}
+.com-title .more:hover {
+  color: #056799;
+}
+.com-case-list .item {
+  display: block;
+  padding: 20px 0;
+  border-bottom: 1px solid #ededed;
+}
+.com-case-list .item:hover .tit {
+  color: #056799;
+}
+.com-case-list .item .tit {
+  font-size: 15px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 15px;
+}
+.com-case-list .item .pics {
+  width: 100%;
+  font-size: 0;
+}
+.com-case-list .item .pics .pic-item {
+  display: inline-block;
+  vertical-align: top;
+  width: 49%;
+  position: relative;
+}
+.com-case-list .item .pics .pic-item:before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+.com-case-list .item .pics .pic-item:last-child {
+  margin-left: 2%;
+}
+.com-case-list .item .pics .pic-item img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.com-news-list .item {
+  display: block;
+  padding: 12px 0;
+  border-bottom: 1px solid #ededed;
+}
+.com-news-list .item .pic {
+  width: 110px;
+  height: 60px;
+  display: block;
+  float: left;
+}
+.com-news-list .item .cont {
+  margin-left: 110px;
+  padding: 2px 10px;
+  height: 60px;
+}
+.com-news-list .item .cont .tit {
+  font-size: 14px;
+  color: #222;
+  margin-bottom: 5px;
+}
+.com-news-list .item .cont .info {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.6;
+}
+.com-map {
+  width: 100%;
+  padding-bottom: 42%;
+  position: relative;
+}
+.com-map .bdMap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+}
+.com-address .item {
+  position: relative;
+  padding-left: 80px;
+  min-height: 17px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+.com-address .item .tit {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.com-tel-btn {
+  margin-top: 20px;
+  display: block;
+  height: 48px;
+  line-height: 48px;
+  font-size: 18px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #056799;
+  text-align: center;
+}
+.com-tel-btn .icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 23px;
+  height: 23px;
+  background: url('../img/ic-call.png') no-repeat;
+  background-size: cover;
+  margin-right: 10px;
+}
+.com-tel-btn:hover {
+  background-color: #005688;
+  color: #fff;
+}
+.com-tabs {
+  font-size: 0;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.com-tabs .item {
+  display: inline-block;
+  vertical-align: center;
+  width: 30%;
+  height: 34px;
+  line-height: 34px;
+  color: #333;
+  font-size: 15px;
+}
+.com-tabs .item:hover,
+.com-tabs .item.active {
+  background-color: #056799;
+  color: #fff;
+}
+.com-tabs .item:nth-child(2) {
+  margin: 0 5%;
+}
+.com-honor-list {
+  font-size: 0;
+}
+.com-honor-list .item {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.com-honor-list .item .pic {
+  display: inline-block;
+  width: 80%;
+  position: relative;
+}
+.com-honor-list .item .pic:before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-bottom: 140%;
+}
+.com-honor-list .item .pic img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.com-honor-list .item .tit {
+  text-align: center;
+  margin-top: 10px;
+  padding: 0 10px;
+  line-height: 1.5;
+  height: 42px;
+}
+.com-pic-list {
+  font-size: 0;
+}
+.com-pic-list .item {
+  display: inline-block;
+  vertical-align: top;
+  width: 49%;
+  position: relative;
+  margin-bottom: 10px;
+}
+.com-pic-list .item:before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+.com-pic-list .item:nth-child(2n) {
+  margin-left: 2%;
+}
+.com-pic-list .item img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.com-article .head {
+  text-align: center;
+}
+.com-article .head .title {
+  font-size: 18px;
+  color: #222;
+}
+.com-article .head .sub {
+  margin: 15px 0;
+  color: #888;
+  font-size: 12px;
+}
+/******** 首页 ********/
+#slide {
+  width: 100%;
+  padding-bottom: 48%;
+  position: relative;
+}
+#slide .swiper-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#slide .swiper-container .swiper-slide {
+  width: 100%;
+  height: 100%;
+  background: no-repeat center center;
+  background-size: cover;
+}
+.index-wrap {
+  padding: 20px 10px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+.index-wrap .com-case-list .item:last-child,
+.index-wrap .com-news-list .item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+@media screen and (min-width: 750px) {
+  .wrap {
+    width: 750px;
+  }
+  #header {
+    width: 750px;
+    left: 50%;
+    margin-left: -375px;
+  }
+}
